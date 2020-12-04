@@ -62,17 +62,17 @@
 
             {% if harvests %}
 
-            {% for harvest in harvests %}
+                {% for harvest in harvests %}
 
-            <ul>
-                <li>{{harvest.date}}: Harvested {{harvest.quantity}} {{plant.name}}</li>
-            </ul>
+                <ul>
+                    <li>{{harvest.date}}: Harvested {{harvest.quantity}} plants</li>
+                </ul>
 
-            {% endfor %}
+                {% endfor %}
 
             {% else %}
 
-            <p>This plant has not been harvested yet</p>
+                <p>This plant has not been harvested yet.</p>
             
             {% endif %}
 

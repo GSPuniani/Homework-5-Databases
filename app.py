@@ -80,7 +80,7 @@ def harvest(plant_id):
 
     # Create a new harvest object by passing in the form data from the detail page form.
     new_harvest = {
-        'quantity': request.form.get('harvested_amount'), # e.g. '3 tomatoes'
+        'quantity': request.form.get('harvested_amount'), 
         'date': request.form.get('date_planted'),
         'plant_id': plant_id
     }
@@ -96,7 +96,7 @@ def edit(plant_id):
     if request.method == 'POST':
         # Make an `update_one` database call to update the plant with the given id
         plants_collection.update_one({
-            'plant_id': plant_id
+            '_id': ObjectId(plant_id)
         }, 
         {'$set': {
             'name': request.form.get('plant_name'),
