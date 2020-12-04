@@ -60,7 +60,7 @@
         <section id="harvest-history">
             <h3>Harvest History</h3>
 
-            {$ for harvest in harvests %}
+            {% for harvest in harvests %}
 
             <ul>
                 <li>{{harvest.date}}: Harvested {{harvest.quantity}} {{plant.name}}</li>

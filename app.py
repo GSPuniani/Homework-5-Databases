@@ -73,7 +73,7 @@ def detail(plant_id):
     harvests = harvests_collection.find_one({'_id': ObjectId(plant_id)})
 
     context = {
-        'plant' : plant_to_show,
+        'plant': plant_to_show,
         'harvests': harvests
     }
     return render_template('detail.html', **context)
