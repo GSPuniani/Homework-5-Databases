@@ -69,7 +69,6 @@ def detail(plant_id):
         'plant': plant_to_show,
         'harvests': harvests
     }
-    print(context['harvests'])
 
     return render_template('detail.html', **context)
 
@@ -120,12 +119,11 @@ def edit(plant_id):
 
 @app.route('/delete/<plant_id>', methods=['POST'])
 def delete(plant_id):
-    # Make a `delete_one` database call to delete the plant with the given
-    # id.
+    # Make a `delete_one` database call to delete the plant with the given id.
     plants_collection.delete_one({'_id': ObjectId(plant_id)})
 
     # Make a `delete_many` database call to delete all harvests with the given plant id.
-    harvests_collection.delete_many({'_id': ObjectId(plant_id)})
+    harvests_collection.delete_many({'plant_id': plant_id})
 
     return redirect(url_for('plants_list'))
 
