@@ -63,7 +63,7 @@ def detail(plant_id):
     plant_to_show = plants_collection.find_one({'_id': ObjectId(plant_id)})
 
     # Find all harvests for the plant's id.
-    harvests = harvests_collection.find({'_id': ObjectId(plant_id)})
+    harvests = harvests_collection.find({'plant_id': plant_id})
 
     context = {
         'plant': plant_to_show,
