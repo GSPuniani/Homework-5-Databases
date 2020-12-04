@@ -60,6 +60,8 @@
         <section id="harvest-history">
             <h3>Harvest History</h3>
 
+            {% if harvests %}
+
             {% for harvest in harvests %}
 
             <ul>
@@ -67,6 +69,14 @@
             </ul>
 
             {% endfor %}
+
+            {% else %}
+
+            <p>This plant has not been harvested yet</p>
+            
+            {% endif %}
+
+
         </section>
 
         <form action="/delete/{{plant._id}}" method='POST' id="delete-form" onsubmit="return confirm_delete()">
