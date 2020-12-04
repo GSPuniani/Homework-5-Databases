@@ -69,6 +69,7 @@ def detail(plant_id):
         'plant': plant_to_show,
         'harvests': harvests
     }
+    print(context['harvests'])
 
     return render_template('detail.html', **context)
 
